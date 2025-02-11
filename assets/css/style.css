@@ -73,8 +73,11 @@ nav {
 
 
 
-main{
+main{    
+    margin-top: 66px;
     background-color: blanchedalmond;
+    flex: 1 0 auto;
+
 }
 
 footer{
