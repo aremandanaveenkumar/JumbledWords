@@ -59,6 +59,17 @@ nav {
     display: none;
     top: 100%
 }
+#nav-toggle:checked~nav {
+    display: block;
+}
+
+#nav-toggle {
+    display: none;
+}
+
+.nav-toggle-label {
+    font-size: 160%;
+}
 
 
 
