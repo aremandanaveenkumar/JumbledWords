@@ -16,6 +16,12 @@ header{
     background-color: aqua;
 }
 
+h1{
+    font-family: "Titillium Web", serif;
+    font-weight: 600;
+    font-style: normal;
+}
+
 main{
     background-color: blanchedalmond;
 }
