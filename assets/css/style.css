@@ -37,6 +37,13 @@ h1{
     color:darkolivegreen;
 }
 
+h3, h4{
+    font-family: "Titillium Web", serif;
+    font-weight: 600;
+    font-style: normal;
+    text-transform: uppercase;
+    color:darkolivegreen;
+}
 #menu {
     font-size: 120%;
     letter-spacing: 2px;
@@ -92,7 +99,7 @@ main{
 #social-networks i {
     font-size: 160%;
     padding: 5%;
-    color: #43210a;
+    color: darkolivegreen;
 }
 
 @media screen and (min-width: 820px) {
