@@ -23,10 +23,18 @@ header{
     box-shadow: 0 2px 3px gray;
 }
 
+header a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
 h1{
     font-family: "Titillium Web", serif;
     font-weight: 600;
     font-style: normal;
+    text-transform: uppercase;
+    color:crimson;
 }
 
 main{
