@@ -34,8 +34,23 @@ h1{
     font-weight: 600;
     font-style: normal;
     text-transform: uppercase;
-    color:crimson;
+    color:darkolivegreen;
 }
+
+#menu {
+    font-size: 120%;
+    letter-spacing: 2px;
+    list-style-type: none;
+}
+#menu>li {
+    margin-bottom: 1em;
+}
+
+#menu a:hover {
+    border-bottom: 1px solid #43210a;
+}
+
+
 
 main{
     background-color: blanchedalmond;
