@@ -37,7 +37,7 @@ h1{
     color:darkolivegreen;
 }
 
-h3, h4{
+h2, h3, h4{
     font-family: "Titillium Web", serif;
     font-weight: 600;
     font-style: normal;
@@ -79,13 +79,18 @@ nav {
     font-size: 160%;
 }
 
-
-
 main{    
     margin-top: 66px;
     background-color: blanchedalmond;
     flex: 1 0 auto;
 
+}
+
+#gameInfo{
+    width: 100%;
+    position: relative;
+    height: 600px;
+    background-color: azure;
 }
 
 #social-networks {
