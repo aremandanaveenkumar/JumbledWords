@@ -83,7 +83,7 @@ nav {
 
 main{    
     margin-top: 66px;
-    background-color: blanchedalmond;
+    background-color: blanchedalmond; /* need this?? */
     flex: 1 0 auto;
 
 }
@@ -109,7 +109,9 @@ main{
     display: inline;
     width: 100vw;
     height: 100vh;
+    align-items: center;
     vertical-align: middle;
+    text-align: center;
 }
 .game-container{
     min-width: 300px;
@@ -123,6 +125,7 @@ main{
 
 .game-controls{
     width: 100%;
+    height: 90px;
 }
 
 #game-controls-list{
@@ -159,6 +162,22 @@ main{
     font-size: 160%;
     padding: 5%;
     color: darkolivegreen;
+}
+
+@media screen and (min-width:1180px){
+    .container{
+        display: flex;
+        height: 100%;
+    }
+    .game-container{
+        height: 90vh;
+        aspect-ratio: 1/1;
+        max-height: 600px;
+        float: left;
+    }
+    .game-controls{
+        align-self: last baseline;
+    }
 }
 
 @media screen and (min-width: 820px) {
