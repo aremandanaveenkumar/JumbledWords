@@ -133,6 +133,7 @@ function linkClickToControls(){
  * @param {*} e Keyboard events
  */
 function gameKeyDown(e){
+    e.preventDefault();
     if(e.key == "ArrowLeft"){
         shiftLeft();
     } else if(e.key === "ArrowRight"){
