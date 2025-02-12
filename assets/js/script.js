@@ -76,6 +76,10 @@ const randomWords_v = ["vacuum","vagina","val","valid","valium","valley","value"
 const randomWords_w = ["wage","wages","wagner","wagon","wait","waiver","wake","wal","wales","walk","walked","walker","walks","wall","wallet","walls","walnut","walt","walter","wan","wang","wanna","want","wanted","wants","war","ward","ware","warm","warned","warner","warren","wars","was","wash","washer","waste","watch","water","waters","watson","watt","watts","wav","wave","waves","wax","way","wayne","ways","weak","wealth","weapon","wear","web","webcam","weblog","wed","weed","week","weekly","weeks","weight","weird","well","wells","welsh","wendy","went","were","wesley","west","wet","whale","what","whats","wheat","wheel","wheels","when","where","which","while","whilst","white","who","whole","whom","whore","whose","why","wicked","wide","widely","wider","width","wife","wifi","wiki","wild","wiley","will","willow","wilson","win","wind","window","winds","wine","wines","wing","wings","winner","wins","winter","wire","wired","wires","wiring","wisdom","wise","wish","wishes","wit","witch","with","within","wives","wizard","wma","wolf","woman","women","womens","won","wonder","wood","wooden","woods","wool","word","words","work","worked","worker","works","world","worlds","worm","worn","worry","worse","worst","worth","worthy","would","wound","wow","wrap","wright","wrist","write","writer","writes","wrong","wrote"];
 
 
+function allRandomWords(){
+    return randomWords_a.concat(randomWords_b, randomWords_c, randomWords_d, randomWords_e, randomWords_f, randomWords_g, randomWords_h, randomWords_i, randomWords_j, randomWords_k, randomWords_l, randomWords_m, randomWords_n, randomWords_o, randomWords_p, randomWords_q, randomWords_r, randomWords_s1, randomWords_s2, randomWords_t, randomWords_u, randomWords_v, randomWords_w);
+}
+
 
 
 /**
