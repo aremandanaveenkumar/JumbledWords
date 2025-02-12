@@ -64,5 +64,13 @@ function linkClickToControls(){
  * @param {*} e Keyboard events
  */
 function gameKeyDown(e){
-
+    if(e.key == "ArrowLeft"){
+        shiftLeft();
+    } else if(e.key === "ArrowRight"){
+        shiftRight();
+    } else if(e.key === "ArrowDown"){
+        shiftDown();
+    } else if(e.key === "ArrowUp"){
+        shiftUp();
+    }
 }
