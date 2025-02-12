@@ -33,6 +33,7 @@ window.addEventListener("DOMContentLoaded", (event) =>{
 function startNewGame(){
     document.addEventListener("keydown", (e) => gameKeyDown(e));
     linkClickToControls();
+    createEmptyBoard();
 }
 
 /**
@@ -42,6 +43,7 @@ function startNewGame(){
 function startNewGameBoard(){
     document.addEventListener("keydown", (e) => gameKeyDown(e));
     linkClickToControls();
+    createEmptyBoard();
 }
 
 /**
@@ -92,4 +94,39 @@ function shiftDown(){
 function shiftRight(){
     console.log("shift right");
     
+}
+
+function createEmptyBoard(){
+    const gameContainer = document.getElementById("gameContainer");
+    const containerWidth = gameContainer.clientWidth;
+    const containerHeight = gameContainer.clientHeight;
+    const containerW = containerWidth <= containerHeight ? containerWidth : containerHeight;
+    gameContainer.style.height = containerW;
+    gameContainer.style.width = containerW;
+    console.log(containerWidth/6);
+    while (gameContainer.hasChildNodes()) {
+        gameContainer.removeChild(gameContainer.firstChild);
+      }
+      let k = 0;
+      for (let i = 0; i < 6; i++){        
+          const rowDiv = document.createElement("div");
+          rowDiv.className = "row";
+              for (let j = 0; j < 6; j++){
+                  const colDiv = document.createElement("div");
+                  colDiv.classList.add("col-" + i + "-" + j);
+                  colDiv.classList.add("col");
+                  colDiv.addEventListener("click", (e) => cellDivSelected(e));
+                  const cellP = document.createElement("p");
+                  cellP.innerText = "";
+                  cellP.classList.add("cell-" + i + "-" + j);
+                  colDiv.appendChild(cellP);    
+                  colDiv.style.left = j * (containerW / 6) + "px";
+                  colDiv.style.top = i *(containerW / 6) + "px";
+                  colDiv.style.width = (containerW / 6) + "px";
+                  colDiv.style.height = (containerW / 6) + "px";
+                  colDiv.classList.add("gameBoard-col");               
+                  rowDiv.appendChild(colDiv);   
+              }
+              gameContainer.appendChild(rowDiv);
+          }
 }
