@@ -218,5 +218,12 @@ function writeToGameBoard(rowPos, colPos, alphabet){
     cells[0].classList.add("active-cell");
 }
 
-
+function deleteFromGameBoard(rowPos, colPos){
+    gameBoard[rowPos][colPos] = "";
+    gameBoardTopDown[colPos][rowPos] = ""; 
+    let cells = document.getElementsByClassName("cell-" + rowPos + "-" + colPos);
+    cells[0].innerText = "";
+    cells[0].classList.remove("active-cell");   
+    cells[0].parentElement.classList.remove("active-col"); 
+}
 
