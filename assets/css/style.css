@@ -37,12 +37,13 @@ h1{
     color:darkolivegreen;
 }
 
-h2, h3, h4{
+h2, h3{
     font-family: "Titillium Web", serif;
     font-weight: 600;
     font-style: normal;
     text-transform: uppercase;
     color:darkolivegreen;
+    display: inline-block;
 }
 #menu {
     font-size: 120%;
@@ -89,8 +90,18 @@ main{
 #gameInfo{
     width: 100%;
     position: relative;
-    height: 600px;
+    height: 500px;
     background-color: azure;
+}
+
+#gameSection-Header{
+    width: 100%;
+    background-color: lightyellow;
+}
+
+#game-Hint{
+    float:right;
+    padding-right: 5%;
 }
 
 #social-networks {
