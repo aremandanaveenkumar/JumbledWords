@@ -80,6 +80,8 @@ function allRandomWords(){
     return randomWords_a.concat(randomWords_b, randomWords_c, randomWords_d, randomWords_e, randomWords_f, randomWords_g, randomWords_h, randomWords_i, randomWords_j, randomWords_k, randomWords_l, randomWords_m, randomWords_n, randomWords_o, randomWords_p, randomWords_q, randomWords_r, randomWords_s1, randomWords_s2, randomWords_t, randomWords_u, randomWords_v, randomWords_w);
 }
 
+let allrandomWords = [];
+
 
 
 /**
@@ -90,6 +92,9 @@ function startNewGame(){
     document.addEventListener("keydown", (e) => gameKeyDown(e));
     linkClickToControls();
     createEmptyBoard();
+    if(allrandomWords.length <= 0){
+        allrandomWords = allRandomWords();
+    }
 }
 
 /**
