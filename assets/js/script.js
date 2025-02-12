@@ -89,6 +89,8 @@ let shiftRowPos = 0;
 let shiftColPos = 0;
 let shiftAlphabet = "";
 
+let activeRandomWord = [];
+
 
 /**
  * start a new empty game board
@@ -214,7 +216,7 @@ function createEmptyBoard(){
     console.log(containerWidth/6);
     while (gameContainer.hasChildNodes()) {
         gameContainer.removeChild(gameContainer.firstChild);
-      }
+      }      
       let k = 0;
       for (let i = 0; i < 6; i++){        
           const rowDiv = document.createElement("div");
@@ -237,10 +239,10 @@ function createEmptyBoard(){
               }
               gameContainer.appendChild(rowDiv);
           }
-          shiftRowPos = 0;
-          shiftColPos = 0;
-          shiftAlphabet = "a";
-          writeToGameBoard(shiftRowPos,shiftColPos,shiftAlphabet);
+        shiftRowPos = 0;
+        shiftColPos = 0;
+        shiftAlphabet = "a";
+        writeToGameBoard(shiftRowPos,shiftColPos,shiftAlphabet);
 }
 
 function cellDivSelected(e){
@@ -274,3 +276,30 @@ function deleteFromGameBoard(rowPos, colPos){
     cells[0].parentElement.classList.remove("active-col"); 
 }
 
+
+function getRandomAlphabet(){
+    if(activeRandomWord.length <= 0){
+        let len = allrandomWords.length;
+        let i = Math.floor(Math.random() * len);
+        let word = allrandomWords[i];
+        activeRandomWord = word.split("");
+        console.log(word);
+    }
+    if(activeRandomWord.length > 0){
+        let cells = document.getElementsByClassName("game-hint");
+        cells[0].innerText = " Hint : " + activeRandomWord.join("");   
+        let len = activeRandomWord.length;
+        let i = Math.floor(Math.random() * len);
+        let alphabet = activeRandomWord[i];
+        delete activeRandomWord[i];
+        let word = activeRandomWord.join("");
+        activeRandomWord = word.split("");
+        return alphabet;
+    }
+    else{
+        console.log("error");
+        let alphabets = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+        let i = Math.floor(Math.random() * 26);
+        return alphabets[i];
+    }
+  }
