@@ -32,6 +32,7 @@ window.addEventListener("DOMContentLoaded", (event) =>{
  */
 function startNewGame(){
     document.addEventListener("keydown", (e) => gameKeyDown(e));
+    linkClickToControls();
 }
 
 /**
@@ -40,6 +41,22 @@ function startNewGame(){
  */
 function startNewGameBoard(){
     document.addEventListener("keydown", (e) => gameKeyDown(e));
+    linkClickToControls();
+}
+
+/**
+ * link click event to game controls left, up, down, right
+ */
+function linkClickToControls(){
+    const left = document.getElementById("shift-left-button");
+    const up = document.getElementById("shift-up-button");
+    const down = document.getElementById("shift-down-button");
+    const right = document.getElementById("shift-right-button");
+
+    left.addEventListener("click", () => shiftLeft());  
+    up.addEventListener("click", () => shiftUp());  
+    down.addEventListener("click", () => shiftDown());  
+    right.addEventListener("click", () => shiftRight()); 
 }
 
 /**
