@@ -288,7 +288,7 @@ function getRandomAlphabet(){
     }
     if(activeRandomWord.length > 0){
         let cell = document.getElementById("game-Hint");
-        cell.innerText = "Hint : " + activeRandomWord.join("");   
+        cell.innerText = "HINT : " + activeRandomWord.join("");   
         let len = activeRandomWord.length;
         let i = Math.floor(Math.random() * len);
         let alphabet = activeRandomWord[i];
@@ -320,5 +320,5 @@ function newAlphabetAtTopRow(){
 }
 
 function checkBoardForWords(rowPos, colPos){
-    
+
 }
