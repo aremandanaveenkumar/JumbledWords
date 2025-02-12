@@ -74,3 +74,19 @@ function gameKeyDown(e){
         shiftUp();
     }
 }
+
+function shiftLeft(){
+
+}
+
+function shiftUp(){
+    
+}
+
+function shiftDown(){
+    
+}
+
+function shiftRight(){
+    
+}
