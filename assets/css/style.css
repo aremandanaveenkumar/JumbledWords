@@ -91,11 +91,11 @@ main{
 #gameInfo{
     width: 100%;
     position: relative;
-    height: 500px;
+    height: 700px;
     background-color: azure;
 }
 
-#gameSection-Header{
+#gameSection-Header, #scoresSection-Header{
     width: 100%;
     background-color: lightyellow;
 }
@@ -150,6 +150,20 @@ main{
     color: blue;
 }
 
+#scoresSection{
+    display: inline;
+    width: 100vw;
+    height: 100vh;
+}
+
+#scores-container{
+    width: 100vw;
+    aspect-ratio: 1/1;
+    vertical-align: middle;
+    text-align: center;
+    background-color: lightgray;
+}
+
 #social-networks {
     text-align: center;
     padding: 20px 0;
@@ -176,6 +190,9 @@ main{
     }
     .game-controls{
         align-self: last baseline;
+    }
+    #scores-container{
+        min-height: 630px;
     }
 }
 
