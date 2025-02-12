@@ -145,7 +145,17 @@ function gameKeyDown(e){
 }
 
 function shiftLeft(){
-console.log("shift left");
+    let shift = shiftColPos - 1;
+    if(isCellFree(shiftRowPos, shift)){
+        deleteFromGameBoard(shiftRowPos, shiftColPos);
+        writeToGameBoard(shiftRowPos, shift, shiftAlphabet);
+        shiftColPos--;
+    }else if(isCellFree(shiftRowPos + 1, shift + 1)){
+        //shiftDown();
+    }else{
+
+    }
+
 }
 
 function shiftUp(){
@@ -166,7 +176,17 @@ function shiftDown(){
 }
 
 function shiftRight(){
-    console.log("shift right");
+    let shift = shiftColPos + 1;
+        if(isCellFree(shiftRowPos, shift)){
+            deleteFromGameBoard(shiftRowPos, shiftColPos);
+            writeToGameBoard(shiftRowPos, shift, shiftAlphabet);
+            shiftColPos++;
+        }else if(isCellFree(shiftRowPos + 1, shift - 1)){
+            //shiftDown();
+        }else{
+    
+        }
+
     
 }
 
