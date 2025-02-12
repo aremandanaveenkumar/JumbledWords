@@ -154,8 +154,10 @@ function shiftUp(){
 }
 
 function shiftDown(){
-    console.log("shift down");
-    
+    let shift = shiftRowPos + 1;
+    deleteFromGameBoard(shiftRowPos, shiftColPos);
+    writeToGameBoard(shift, shiftColPos, shiftAlphabet);
+    shiftRowPos++;
 }
 
 function shiftRight(){
@@ -196,7 +198,10 @@ function createEmptyBoard(){
               }
               gameContainer.appendChild(rowDiv);
           }
-          writeToGameBoard(0,0,"a");
+          shiftRowPos = 0;
+          shiftColPos = 0;
+          shiftAlphabet = "a";
+          writeToGameBoard(shiftRowPos,shiftColPos,shiftAlphabet);
 }
 
 function cellDivSelected(e){
