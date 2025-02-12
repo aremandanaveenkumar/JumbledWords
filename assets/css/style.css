@@ -124,7 +124,17 @@ main{
     vertical-align: middle;
     text-align: center;
     background-color: lightgray;
+    position: relative;
 }
+
+.gameBoard-col{
+    box-sizing: border-box;
+    border:  1px solid gray;
+    position: absolute;
+    display: flex;
+    align-items: center;
+}
+
 
 .game-controls{
     width: 100%;
