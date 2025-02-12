@@ -155,15 +155,33 @@ function shiftUp(){
 
 function shiftDown(){
     let shift = shiftRowPos + 1;
-    deleteFromGameBoard(shiftRowPos, shiftColPos);
-    writeToGameBoard(shift, shiftColPos, shiftAlphabet);
-    shiftRowPos++;
+    if(isCellFree(shift, shiftColPos)){
+        deleteFromGameBoard(shiftRowPos, shiftColPos);
+        writeToGameBoard(shift, shiftColPos, shiftAlphabet);
+        shiftRowPos++;
+    }else{
+        //check for words in row
+        //create new alphabet on top
+    }
 }
 
 function shiftRight(){
     console.log("shift right");
     
 }
+
+function isCellFree(rowPos, colPos){
+    if(colPos < 0 || colPos > 5 || rowPos > 5){
+        return false;
+    }
+    let cell = gameBoard[rowPos][colPos];
+    if(cell.length > 0){
+        return false;
+    } else{
+        return true;
+    }
+}
+
 
 function createEmptyBoard(){
     const gameContainer = document.getElementById("gameContainer");
