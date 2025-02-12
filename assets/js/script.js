@@ -76,17 +76,20 @@ function gameKeyDown(e){
 }
 
 function shiftLeft(){
-
+console.log("shift left");
 }
 
 function shiftUp(){
+    console.log("shift up");
     
 }
 
 function shiftDown(){
+    console.log("shift down");
     
 }
 
 function shiftRight(){
+    console.log("shift right");
     
 }
