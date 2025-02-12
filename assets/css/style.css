@@ -104,6 +104,32 @@ main{
     padding-right: 5%;
 }
 
+.game-controls{
+    width: 100%;
+}
+
+#game-controls-list{
+    text-align: center;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-evenly;
+    list-style-type: none;
+}
+
+#game-controls-list li{
+    min-width: 15%;
+}
+
+#game-controls-list i{
+    font-size: 300%;
+    padding: 5px;
+}
+
+#game-controls-list li:hover{
+    font-size: 120%;
+    color: blue;
+}
+
 #social-networks {
     text-align: center;
     padding: 20px 0;
