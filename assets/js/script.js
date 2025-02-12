@@ -242,6 +242,7 @@ function createEmptyBoard(){
         shiftRowPos = 0;
         shiftColPos = 0;
         shiftAlphabet = "";
+        activeRandomWord = [];
         newAlphabetAtTopRow();
 }
 
@@ -318,3 +319,6 @@ function newAlphabetAtTopRow(){
     alert(" Game Over! ");
 }
 
+function checkBoardForWords(rowPos, colPos){
+    
+}
