@@ -14,6 +14,7 @@ body{
 }
 header{
     padding: 7px;
+    background-color: #ffffff;
     position: fixed;
     z-index: 99;
     width: 100%;
@@ -102,6 +103,22 @@ main{
 #game-Hint{
     float:right;
     padding-right: 5%;
+}
+
+.container{
+    display: inline;
+    width: 100vw;
+    height: 100vh;
+    vertical-align: middle;
+}
+.game-container{
+    min-width: 300px;
+    max-width: 600px;
+    width: 100vw;
+    aspect-ratio: 1/1;
+    vertical-align: middle;
+    text-align: center;
+    background-color: lightgray;
 }
 
 .game-controls{
