@@ -97,12 +97,12 @@ let activeRandomWord = [];
  * link keydown and game control clicks
  */
 function startNewGame(){
-    document.addEventListener("keydown", (e) => gameKeyDown(e));
-    linkClickToControls();
-    createEmptyBoard();
     if(allrandomWords.length <= 0){
         allrandomWords = allRandomWords();
     }
+    document.addEventListener("keydown", (e) => gameKeyDown(e));
+    linkClickToControls();
+    createEmptyBoard();
 }
 
 /**
@@ -174,7 +174,7 @@ function shiftDown(){
         shiftRowPos++;
     }else{
         //check for words in row
-        //create new alphabet on top
+        newAlphabetAtTopRow();
     }
 }
 
@@ -241,8 +241,8 @@ function createEmptyBoard(){
           }
         shiftRowPos = 0;
         shiftColPos = 0;
-        shiftAlphabet = "a";
-        writeToGameBoard(shiftRowPos,shiftColPos,shiftAlphabet);
+        shiftAlphabet = "";
+        newAlphabetAtTopRow();
 }
 
 function cellDivSelected(e){
@@ -282,12 +282,12 @@ function getRandomAlphabet(){
         let len = allrandomWords.length;
         let i = Math.floor(Math.random() * len);
         let word = allrandomWords[i];
+        console.log(allrandomWords[i]);
         activeRandomWord = word.split("");
-        console.log(word);
     }
     if(activeRandomWord.length > 0){
-        let cells = document.getElementsByClassName("game-hint");
-        cells[0].innerText = " Hint : " + activeRandomWord.join("");   
+        let cell = document.getElementById("game-Hint");
+        cell.innerText = "Hint : " + activeRandomWord.join("");   
         let len = activeRandomWord.length;
         let i = Math.floor(Math.random() * len);
         let alphabet = activeRandomWord[i];
@@ -303,3 +303,18 @@ function getRandomAlphabet(){
         return alphabets[i];
     }
   }
+
+  
+function newAlphabetAtTopRow(){
+    shiftRowPos = 0;
+    shiftAlphabet = getRandomAlphabet();
+    for(let i=0; i< 6; i++){
+        if(gameBoard[0][i].length <= 0){
+            shiftColPos = i;
+            writeToGameBoard(shiftRowPos, shiftColPos, shiftAlphabet);
+            return;
+        }
+    }
+    alert(" Game Over! ");
+}
+
