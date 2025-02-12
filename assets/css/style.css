@@ -173,7 +173,28 @@ main{
         height: 90vh;
         aspect-ratio: 1/1;
         max-height: 600px;
-        float: left;
+    }
+    .game-controls{
+        align-self: last baseline;
+    }
+}
+
+@media screen and (max-height: 430px) and (orientation : landscape){
+    header{
+        font-size: 60%;
+    }
+    h2, h3{
+        font-size: 75%;
+    }
+    .container{
+        display: flex;
+        height: 100%;
+    }
+    .game-container{
+        height: 90vh;
+        aspect-ratio: 1/1;
+        max-height: 300px;
+        max-width: 300px;
     }
     .game-controls{
         align-self: last baseline;
