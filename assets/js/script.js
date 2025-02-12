@@ -193,6 +193,7 @@ function createEmptyBoard(){
               }
               gameContainer.appendChild(rowDiv);
           }
+          writeToGameBoard(0,0,"a");
 }
 
 function cellDivSelected(e){
@@ -208,6 +209,14 @@ function cellDivSelected(e){
     }
 }
 
+function writeToGameBoard(rowPos, colPos, alphabet){
+    gameBoard[rowPos][colPos] = alphabet;
+    gameBoardTopDown[colPos][rowPos] = alphabet; 
+    let cells = document.getElementsByClassName("cell-" + rowPos + "-" + colPos);
+    cells[0].innerText = gameBoard[rowPos][colPos];
+    cells[0].parentElement.classList.add("active-col"); 
+    cells[0].classList.add("active-cell");
+}
 
 
 
