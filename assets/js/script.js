@@ -130,3 +130,16 @@ function createEmptyBoard(){
               gameContainer.appendChild(rowDiv);
           }
 }
+
+function cellDivSelected(e){
+    const selectedElement = e.srcElement;
+    let cellP = e.srcElement;
+    let colDiv = cellP.parentElement;
+    if(selectedElement.tagName.toLowerCase() === "div"){
+        colDiv = selectedElement;
+        cellP = selectedElement.firstChild;
+    }
+    if(cellP){
+        console.log(cellP);
+    }
+}
