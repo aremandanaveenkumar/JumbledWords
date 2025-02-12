@@ -162,7 +162,14 @@ function shiftLeft(){
 }
 
 function shiftUp(){
-    console.log("shift up");
+    let shift = shiftRowPos - 1;
+    if(isCellFree(shift, shiftColPos)){
+        deleteFromGameBoard(shiftRowPos, shiftColPos);
+        writeToGameBoard(shift, shiftColPos, shiftAlphabet);
+        shiftRowPos--;
+    }else{
+
+    }
     
 }
 
