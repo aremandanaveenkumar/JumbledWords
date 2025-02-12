@@ -4,6 +4,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    scroll-padding-top: 66px;
 }
 body{
     min-height: 100vh;
@@ -69,6 +70,7 @@ nav {
     display: none;
     top: 100%
 }
+
 #nav-toggle:checked~nav {
     display: block;
 }
