@@ -4870,7 +4870,7 @@ function swapToLeft(){
     if(swapColPos >= 0){        
         let cells = document.getElementsByClassName("cell-" + swapRowPos + "-" + swapColPos);
         let swapAlphabet = cells[0].innerText;
-        console.log(rowPos + "," + colPos + "," + alphabet + "," + swapRowPos + "," + swapColPos + "," + swapAlphabet);
+        swapGameBoard(rowPos, colPos, alphabet, swapRowPos, swapColPos,swapAlphabet);
     }
 
 }
@@ -4884,7 +4884,7 @@ function swapToUp(){
     if(swapRowPos >= 0){        
         let cells = document.getElementsByClassName("cell-" + swapRowPos + "-" + swapColPos);
         let swapAlphabet = cells[0].innerText;
-        console.log(rowPos + "," + colPos + "," + alphabet + "," + swapRowPos + "," + swapColPos + "," + swapAlphabet);
+        swapGameBoard(rowPos, colPos, alphabet, swapRowPos, swapColPos,swapAlphabet);
     }
 }
 
@@ -4897,7 +4897,7 @@ function swapToDown(){
     if(swapRowPos <= 5){        
         let cells = document.getElementsByClassName("cell-" + swapRowPos + "-" + swapColPos);
         let swapAlphabet = cells[0].innerText;
-        console.log(rowPos + "," + colPos + "," + alphabet + "," + swapRowPos + "," + swapColPos + "," + swapAlphabet);
+        swapGameBoard(rowPos, colPos, alphabet, swapRowPos, swapColPos,swapAlphabet);
     }
 
 }
@@ -4911,10 +4911,30 @@ function swapToRight(){
     if(swapColPos <= 5){        
         let cells = document.getElementsByClassName("cell-" + swapRowPos + "-" + swapColPos);
         let swapAlphabet = cells[0].innerText;
-        console.log(rowPos + "," + colPos + "," + alphabet + "," + swapRowPos + "," + swapColPos + "," + swapAlphabet);
+        swapGameBoard(rowPos, colPos, alphabet, swapRowPos, swapColPos,swapAlphabet);
     }
 }
 
+
+function swapGameBoard(rowPos, colPos, alphabet, swapRow, swapCol, swapAlphabet){
+    gameBoard[rowPos][colPos] = swapAlphabet;
+    gameBoard[swapRow][swapCol] = alphabet;
+    let cells = document.getElementsByClassName("cell-" + rowPos + "-" + colPos);
+    let swapCells = document.getElementsByClassName("cell-" + swapRow + "-" + swapCol);
+    cells[0].innerText = gameBoard[rowPos][colPos];
+    cells[0].parentElement.classList.remove("selected-col"); 
+    cells[0].classList.remove("selected-cell");       
+    if (gameBoard[rowPos][colPos].length <= 0){
+        cells[0].parentElement.classList.remove("active-col"); 
+        cells[0].classList.remove("active-cell");  
+    } 
+    swapCells[0].innerText = gameBoard[swapRow][swapCol];
+    swapCells[0].parentElement.classList.add("selected-col"); 
+    swapCells[0].classList.add("selected-cell");
+    shiftAlphabet = alphabet;
+    shiftRowPos = swapRow;
+    shiftColPos = swapCol;   
+}
 
 
 function isCellFree(rowPos, colPos) {
