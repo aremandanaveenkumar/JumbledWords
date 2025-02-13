@@ -248,10 +248,15 @@ function createEmptyBoard(){
               }
               gameContainer.appendChild(rowDiv);
           }
+        gameBoard = [["","","","","",""],["","","","","",""],["","","","","",""],["","","","","",""],["","","","","",""],["","","","","",""]];
+        gameBoardTopDown = [["","","","","",""],["","","","","",""],["","","","","",""],["","","","","",""],["","","","","",""],["","","","","",""]];
+          
         shiftRowPos = 0;
         shiftColPos = 0;
         shiftAlphabet = "";
         activeRandomWord = [];
+        wordsLeftToRight = [];
+        cellsToBeEmptied = [];
         newAlphabetAtTopRow();
 }
 
