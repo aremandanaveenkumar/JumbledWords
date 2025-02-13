@@ -90,6 +90,7 @@ let shiftColPos = 0;
 let shiftAlphabet = "";
 
 let activeRandomWord = [];
+let isKeyDownAdded = false;
 
 
 /**
@@ -100,8 +101,11 @@ function startNewGame(){
     if(allrandomWords.length <= 0){
         allrandomWords = allRandomWords();
     }
-    document.addEventListener("keydown", (e) => gameKeyDown(e));
-    linkClickToControls();
+    if(!isKeyDownAdded){
+        document.addEventListener("keydown", (e) => gameKeyDown(e));
+        linkClickToControls();
+        isKeyDownAdded = true;
+    }
     createEmptyBoard();
 }
 
@@ -110,8 +114,11 @@ function startNewGame(){
  * link keydown and game control clicks
  */
 function startNewGameBoard(){
-    document.addEventListener("keydown", (e) => gameKeyDown(e));
-    linkClickToControls();
+    if(!isKeyDownAdded){
+        document.addEventListener("keydown", (e) => gameKeyDown(e));
+        linkClickToControls();
+        isKeyDownAdded = true;
+    }
     createEmptyBoard();
 }
 
@@ -180,7 +187,6 @@ function shiftDown(){
         writeToGameBoard(shift, shiftColPos, shiftAlphabet);
         shiftRowPos++;
     }else{
-        //check for words in row
         shift = shiftRowPos;
         checkBoardForWords(shift, shiftColPos);
         newAlphabetAtTopRow();
