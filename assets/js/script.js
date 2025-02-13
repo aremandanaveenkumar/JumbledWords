@@ -5197,7 +5197,7 @@ function emptyCells() {
         delete cellsToBeEmptied[i];
         for (let j = 2; j < cellArray.length; j++) {
           let index = Number(cellArray[j]);
-          console.log("deleted : " + row + "," + index + "," + gameBoard[row - 1][index]);
+          console.log("deleted : " + row + "," + index + "," + searchString);
           colorMatchedWords(row, index);
           setTimeout(function () {
             deleteFromGameBoard(row, index);
@@ -5206,12 +5206,7 @@ function emptyCells() {
             for (let cellR = row; cellR > 0; cellR--) {
               let prevA = gameBoard[cellR - 1][index];
               if (prevA.length == 1) {
-                writeToGameBoard(cellR, index, prevA);
-                console.log(cellR + "," + index + "," + prevA);
-                //colorMatchedWords(cellR - 1, index);
-                // setTimeout(function () {
-                //deleteFromGameBoard(cellR - 1, index);
-                // }, 500);
+                //collect all indices to new array and check
               }
             }
           }
@@ -5219,6 +5214,16 @@ function emptyCells() {
       }
     }
   }
+}
+
+
+function swapCellToDown(rowPos, colPos, alphabet, swapRow, swapCol, swapAlphabet){
+    gameBoard[rowPos][colPos] = swapAlphabet;
+    gameBoard[swapRow][swapCol] = alphabet;
+    let cells = document.getElementsByClassName("cell-" + rowPos + "-" + colPos);
+    let swapCells = document.getElementsByClassName("cell-" + swapRow + "-" + swapCol);
+    cells[0].innerText = gameBoard[rowPos][colPos];
+    swapCells[0].innerText = gameBoard[swapRow][swapCol];
 }
 
 function colorMatchedWords(rowPos, colPos) {
