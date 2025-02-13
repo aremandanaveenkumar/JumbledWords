@@ -4871,6 +4871,8 @@ function swapToLeft(){
         let cells = document.getElementsByClassName("cell-" + swapRowPos + "-" + swapColPos);
         let swapAlphabet = cells[0].innerText;
         swapGameBoard(rowPos, colPos, alphabet, swapRowPos, swapColPos,swapAlphabet);
+        checkBoardForWords(rowPos, colPos);
+        checkBoardForWords(swapRowPos, swapColPos);
     }
 
 }
@@ -4885,6 +4887,8 @@ function swapToUp(){
         let cells = document.getElementsByClassName("cell-" + swapRowPos + "-" + swapColPos);
         let swapAlphabet = cells[0].innerText;
         swapGameBoard(rowPos, colPos, alphabet, swapRowPos, swapColPos,swapAlphabet);
+        checkBoardForWords(rowPos, colPos);
+        checkBoardForWords(swapRowPos, swapColPos);
     }
 }
 
@@ -4898,6 +4902,8 @@ function swapToDown(){
         let cells = document.getElementsByClassName("cell-" + swapRowPos + "-" + swapColPos);
         let swapAlphabet = cells[0].innerText;
         swapGameBoard(rowPos, colPos, alphabet, swapRowPos, swapColPos,swapAlphabet);
+        checkBoardForWords(rowPos, colPos);
+        checkBoardForWords(swapRowPos, swapColPos);
     }
 
 }
@@ -4912,6 +4918,8 @@ function swapToRight(){
         let cells = document.getElementsByClassName("cell-" + swapRowPos + "-" + swapColPos);
         let swapAlphabet = cells[0].innerText;
         swapGameBoard(rowPos, colPos, alphabet, swapRowPos, swapColPos,swapAlphabet);
+        checkBoardForWords(rowPos, colPos);
+        checkBoardForWords(swapRowPos, swapColPos);
     }
 }
 
