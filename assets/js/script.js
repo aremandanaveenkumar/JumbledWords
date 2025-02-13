@@ -5182,6 +5182,8 @@ function checkBoardForWords(rowPos, colPos) {
   emptyCells();
 }
 
+let cellsToShiftDown = [];
+
 function emptyCells() {
   cellsToBeEmptied
     .sort(function (a, b) {
@@ -5202,11 +5204,11 @@ function emptyCells() {
           setTimeout(function () {
             deleteFromGameBoard(row, index);
           }, 500);
-          if (row > 0) {
+          if (row > 0) {            
             for (let cellR = row; cellR > 0; cellR--) {
-              let prevA = gameBoard[cellR - 1][index];
+              let prevA = gameBoard[cellR - 1][index];  
               if (prevA.length == 1) {
-                //collect all indices to new array and check
+                //collect all indices to new array and check                      
               }
             }
           }
@@ -5214,6 +5216,7 @@ function emptyCells() {
       }
     }
   }
+  
 }
 
 
