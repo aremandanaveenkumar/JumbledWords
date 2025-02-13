@@ -4800,7 +4800,7 @@ function gameKeyDown(e) {
 
 function shiftLeft() {
     if(isSwappingAllowed){
-
+        swapToLeft();
     } else{
         let shift = shiftColPos - 1;
         if (isCellFree(shiftRowPos, shift)) {
@@ -4816,7 +4816,7 @@ function shiftLeft() {
 
 function shiftUp() {
     if(isSwappingAllowed){
-
+        swapToUp();
     } else{
         let shift = shiftRowPos - 1;
         if (isCellFree(shift, shiftColPos)) {
@@ -4830,7 +4830,7 @@ function shiftUp() {
 
 function shiftDown() {
     if(isSwappingAllowed){
-
+        swapToDown();
     } else{
         let shift = shiftRowPos + 1;
         if (isCellFree(shift, shiftColPos)) {
@@ -4847,7 +4847,7 @@ function shiftDown() {
 
 function shiftRight() {
     if(isSwappingAllowed){
-
+        swapToRight();
     } else{
         let shift = shiftColPos + 1;
         if (isCellFree(shiftRowPos, shift)) {
@@ -4861,6 +4861,21 @@ function shiftRight() {
     }
 }
 
+function swapToLeft(){
+
+}
+
+function swapToUp(){
+    
+}
+
+function swapToDown(){
+    
+}
+
+function swapToRight(){
+    
+}
 function isCellFree(rowPos, colPos) {
   if (colPos < 0 || colPos > 5 || rowPos > 5) {
     return false;
