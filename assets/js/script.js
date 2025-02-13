@@ -5200,10 +5200,11 @@ function emptyCells() {
               let prevA = gameBoard[cellR - 1][index];
               if (prevA.length == 1) {
                 writeToGameBoard(cellR, index, prevA);
-                colorMatchedWords(cellR - 1, index);
-                setTimeout(function () {
-                  deleteFromGameBoard(cellR - 1, index);
-                }, 500);
+                console.log(shiftRowPos + "," + shiftColPos);
+                //colorMatchedWords(cellR - 1, index);
+                // setTimeout(function () {
+                //   deleteFromGameBoard(cellR - 1, index);
+                // }, 500);
               }
             }
           }
