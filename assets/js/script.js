@@ -5019,6 +5019,9 @@ function createEmptyBoard() {
 }
 
 function cellDivSelected(e) {
+    if(!isSwappingAllowed){
+        return;
+    }
   const selectedElement = e.srcElement;
   let cellP = e.srcElement;
   let colDiv = cellP.parentElement;
@@ -5175,7 +5178,7 @@ function checkBoardForWords(rowPos, colPos) {
       cellsToBeEmptied.push(word + "," + cellIndices);
     }
   }
-  console.log(cellsToBeEmptied);
+  //console.log(cellsToBeEmptied);
   emptyCells();
 }
 
@@ -5194,6 +5197,7 @@ function emptyCells() {
         delete cellsToBeEmptied[i];
         for (let j = 2; j < cellArray.length; j++) {
           let index = Number(cellArray[j]);
+          console.log("deleted : " + row + "," + index + "," + gameBoard[row - 1][index]);
           colorMatchedWords(row, index);
           setTimeout(function () {
             deleteFromGameBoard(row, index);
