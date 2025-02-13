@@ -5014,6 +5014,7 @@ function createEmptyBoard() {
   activeRandomWord = [];
   wordsLeftToRight = [];
   cellsToBeEmptied = [];
+  isSwappingAllowed = false;
   newAlphabetAtTopRow();
 }
 
@@ -5144,6 +5145,8 @@ function newAlphabetAtTopRow() {
     }
   }
   isSwappingAllowed = true;
+  wordsLeftToRight = [];
+  cellsToBeEmptied = [];
   alert(" Board got filled up! Proceed swapping cells to make Words. ");
 }
 
@@ -5200,10 +5203,10 @@ function emptyCells() {
               let prevA = gameBoard[cellR - 1][index];
               if (prevA.length == 1) {
                 writeToGameBoard(cellR, index, prevA);
-                console.log(shiftRowPos + "," + shiftColPos);
+                console.log(cellR + "," + index + "," + prevA);
                 //colorMatchedWords(cellR - 1, index);
                 // setTimeout(function () {
-                //   deleteFromGameBoard(cellR - 1, index);
+                //deleteFromGameBoard(cellR - 1, index);
                 // }, 500);
               }
             }
