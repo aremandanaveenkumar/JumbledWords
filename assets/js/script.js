@@ -295,6 +295,7 @@ function deleteFromGameBoard(rowPos, colPos){
     cells[0].innerText = "";
     cells[0].classList.remove("active-cell");   
     cells[0].parentElement.classList.remove("active-col"); 
+    cells[0].parentElement.classList.remove("matched-col"); 
 }
 
 
@@ -382,13 +383,19 @@ function emptyCells(){
                 delete cellsToBeEmptied[i];
                 for(let j = 2; j < cellArray.length; j++){
                     let index = Number(cellArray[j]);
-                    deleteFromGameBoard(row, index);
+                    colorMatchedWords(row, index);
+                    setTimeout(function() {
+                        deleteFromGameBoard(row, index);
+                    }, 500);                    
                     if(row > 0){
                         for(let cellR = row; cellR > 0; cellR--){        
                             let prevA = gameBoard[cellR - 1][index];
                             if(prevA.length == 1){
                                 writeToGameBoard(cellR, index, prevA);
-                                deleteFromGameBoard(cellR - 1, index);
+                                colorMatchedWords(cellR - 1, index);
+                                setTimeout(function() {
+                                    deleteFromGameBoard(cellR - 1, index);
+                                }, 500);
                             }
                         }
                     }
@@ -396,4 +403,9 @@ function emptyCells(){
             }
         }
     }
+}
+
+function colorMatchedWords(rowPos, colPos){
+    let cells = document.getElementsByClassName("cell-" + rowPos + "-" + colPos);
+    cells[0].parentElement.classList.add("matched-col"); 
 }
