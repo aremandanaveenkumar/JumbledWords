@@ -181,6 +181,8 @@ function shiftDown(){
         shiftRowPos++;
     }else{
         //check for words in row
+        shift = shiftRowPos;
+        checkBoardForWords(shift, shiftColPos);
         newAlphabetAtTopRow();
     }
 }
@@ -326,6 +328,31 @@ function newAlphabetAtTopRow(){
     alert(" Game Over! ");
 }
 
+let wordsLeftToRight = [];
+let cellsToBeEmptied = [];
 function checkBoardForWords(rowPos, colPos){
-
+    for(let shift = 0; shift < 4; shift++){
+        let word = "";
+        let cellIndices = "" + rowPos;
+        for(let i = shift; i < 6; i++){
+            let c = gameBoard[rowPos][i];
+            if(c.length > 0){
+                word = word + c;
+                cellIndices = cellIndices +  "," + i;
+                if(word.length > 2 && wordsLeftToRight.indexOf(word) < 0){
+                    wordsLeftToRight.push(word);
+                    cellsToBeEmptied.push(word +  "," + cellIndices);
+                }
+            } else{
+                word = "";
+                cellIndices = "" + rowPos;
+            }
+        }        
+        if(word.length > 2 && wordsLeftToRight.indexOf(word) < 0){
+            wordsLeftToRight.push(word);
+            cellsToBeEmptied.push(word +  "," + cellIndices);
+        }
+    }
+    console.log(cellsToBeEmptied);
+    //emptyCells();
 }
