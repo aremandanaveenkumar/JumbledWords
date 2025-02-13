@@ -4735,6 +4735,7 @@ let shiftAlphabet = "";
 
 let activeRandomWord = [];
 let isKeyDownAdded = false;
+let isSwappingAllowed = false;
 
 /**
  * start a new empty game board
@@ -4798,50 +4799,66 @@ function gameKeyDown(e) {
 }
 
 function shiftLeft() {
-  let shift = shiftColPos - 1;
-  if (isCellFree(shiftRowPos, shift)) {
-    deleteFromGameBoard(shiftRowPos, shiftColPos);
-    writeToGameBoard(shiftRowPos, shift, shiftAlphabet);
-    shiftColPos--;
-  } else if (isCellFree(shiftRowPos + 1, shift + 1)) {
-    //shiftDown();
-  } else {
-  }
+    if(isSwappingAllowed){
+
+    } else{
+        let shift = shiftColPos - 1;
+        if (isCellFree(shiftRowPos, shift)) {
+          deleteFromGameBoard(shiftRowPos, shiftColPos);
+          writeToGameBoard(shiftRowPos, shift, shiftAlphabet);
+          shiftColPos--;
+        } else if (isCellFree(shiftRowPos + 1, shift + 1)) {
+          //shiftDown();
+        } else {
+        }
+    }
 }
 
 function shiftUp() {
-  let shift = shiftRowPos - 1;
-  if (isCellFree(shift, shiftColPos)) {
-    deleteFromGameBoard(shiftRowPos, shiftColPos);
-    writeToGameBoard(shift, shiftColPos, shiftAlphabet);
-    shiftRowPos--;
-  } else {
-  }
+    if(isSwappingAllowed){
+
+    } else{
+        let shift = shiftRowPos - 1;
+        if (isCellFree(shift, shiftColPos)) {
+          deleteFromGameBoard(shiftRowPos, shiftColPos);
+          writeToGameBoard(shift, shiftColPos, shiftAlphabet);
+          shiftRowPos--;
+        } else {
+        }
+    }
 }
 
 function shiftDown() {
-  let shift = shiftRowPos + 1;
-  if (isCellFree(shift, shiftColPos)) {
-    deleteFromGameBoard(shiftRowPos, shiftColPos);
-    writeToGameBoard(shift, shiftColPos, shiftAlphabet);
-    shiftRowPos++;
-  } else {
-    shift = shiftRowPos;
-    checkBoardForWords(shift, shiftColPos);
-    newAlphabetAtTopRow();
-  }
+    if(isSwappingAllowed){
+
+    } else{
+        let shift = shiftRowPos + 1;
+        if (isCellFree(shift, shiftColPos)) {
+          deleteFromGameBoard(shiftRowPos, shiftColPos);
+          writeToGameBoard(shift, shiftColPos, shiftAlphabet);
+          shiftRowPos++;
+        } else {
+          shift = shiftRowPos;
+          checkBoardForWords(shift, shiftColPos);
+          newAlphabetAtTopRow();
+        }
+    }
 }
 
 function shiftRight() {
-  let shift = shiftColPos + 1;
-  if (isCellFree(shiftRowPos, shift)) {
-    deleteFromGameBoard(shiftRowPos, shiftColPos);
-    writeToGameBoard(shiftRowPos, shift, shiftAlphabet);
-    shiftColPos++;
-  } else if (isCellFree(shiftRowPos + 1, shift - 1)) {
-    //shiftDown();
-  } else {
-  }
+    if(isSwappingAllowed){
+
+    } else{
+        let shift = shiftColPos + 1;
+        if (isCellFree(shiftRowPos, shift)) {
+          deleteFromGameBoard(shiftRowPos, shiftColPos);
+          writeToGameBoard(shiftRowPos, shift, shiftAlphabet);
+          shiftColPos++;
+        } else if (isCellFree(shiftRowPos + 1, shift - 1)) {
+          //shiftDown();
+        } else {
+        }
+    }
 }
 
 function isCellFree(rowPos, colPos) {
@@ -4925,7 +4942,38 @@ function cellDivSelected(e) {
     cellP = selectedElement.firstChild;
   }
   if (cellP) {
+    const cellClasses = cellP.classList;
     console.log(cellP);
+    if(cellClasses.length > 0){
+        const splitStr = cellClasses[0].split("-");
+        if(splitStr.length == 3){
+            const rowPos = Number(splitStr[1]);
+            const colPos = Number(splitStr[2]);
+            if(rowPos >= 0 && rowPos <= 5 && colPos >= 0 && colPos <= 5){
+                shiftRowPos = rowPos;
+                shiftColPos = colPos;
+                let activeCols = document.getElementsByClassName("selected-col");
+                if(activeCols.length > 0){
+                    for(let activeCol of activeCols){
+                        activeCol.classList.remove("selected-col");
+                    }
+                }
+                let activeCells = document.getElementsByClassName("selected-cell");
+                if(activeCells.length > 0){
+                    for(let activeCell of activeCells){
+                        activeCell.classList.remove("selected-cell");
+                    }
+                }
+                colDiv.classList.add("selected-col");
+                cellP.classList.add("selected-cell");
+                shiftAlphabet = gameBoard[rowPos][colPos];
+            }
+            else{
+                shiftRowPos = -1;
+                shiftColPos = -1;
+            }
+        }
+    }    
   }
 }
 
@@ -5011,7 +5059,8 @@ function newAlphabetAtTopRow() {
       return;
     }
   }
-  alert(" Game Over! ");
+  isSwappingAllowed = true;
+  alert(" Board got filled up! Proceed swapping cells to make Words. ");
 }
 
 let wordsLeftToRight = [];

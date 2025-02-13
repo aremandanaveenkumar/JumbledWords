@@ -142,11 +142,16 @@ main{
     background-color: lightsteelblue;
     box-shadow: 0 2px 6px black, 0 2px 6px black;
 }
+
 .matched-col{
     background-color: seagreen;
     box-shadow: 0 2px 6px black, 0 2px 6px black;
 }
 
+.selected-col{
+    background-color: greenyellow;
+    box-shadow: 0 2px 6px black, 0 2px 6px black;
+}
 .gameBoard-col > p{
     font-size: 200%;
     text-align: center;
