@@ -354,5 +354,35 @@ function checkBoardForWords(rowPos, colPos){
         }
     }
     console.log(cellsToBeEmptied);
-    //emptyCells();
+    emptyCells();
+}
+
+
+function emptyCells(){
+    cellsToBeEmptied.sort(function(a, b) {
+        return a.length - b.length;
+      }).reverse();
+    for(let i = 0; i < cellsToBeEmptied.length; i++){
+        if(cellsToBeEmptied[i]){
+            const cellArray = cellsToBeEmptied[i].split(",");
+            let searchString = cellArray[0];
+            let row = Number(cellArray[1]);
+            if(allrandomWords.indexOf(searchString) >= 0){
+                delete cellsToBeEmptied[i];
+                for(let j = 2; j < cellArray.length; j++){
+                    let index = Number(cellArray[j]);
+                    deleteFromGameBoard(row, index);
+                    if(row > 0){
+                        for(let cellR = row; cellR > 0; cellR--){        
+                            let prevA = gameBoard[cellR - 1][index];
+                            if(prevA.length == 1){
+                                writeToGameBoard(cellR, index, prevA);
+                                deleteFromGameBoard(cellR - 1, index);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
