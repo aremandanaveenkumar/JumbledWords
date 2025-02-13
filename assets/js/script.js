@@ -4862,20 +4862,61 @@ function shiftRight() {
 }
 
 function swapToLeft(){
+    let rowPos = shiftRowPos;
+    let colPos = shiftColPos;
+    let swapRowPos = shiftRowPos;
+    let swapColPos = shiftColPos - 1;
+    let alphabet = shiftAlphabet;
+    if(swapColPos >= 0){        
+        let cells = document.getElementsByClassName("cell-" + swapRowPos + "-" + swapColPos);
+        let swapAlphabet = cells[0].innerText;
+        console.log(rowPos + "," + colPos + "," + alphabet + "," + swapRowPos + "," + swapColPos + "," + swapAlphabet);
+    }
 
 }
 
 function swapToUp(){
-    
+    let rowPos = shiftRowPos;
+    let colPos = shiftColPos;
+    let swapRowPos = shiftRowPos - 1;
+    let swapColPos = shiftColPos;
+    let alphabet = shiftAlphabet;
+    if(swapRowPos >= 0){        
+        let cells = document.getElementsByClassName("cell-" + swapRowPos + "-" + swapColPos);
+        let swapAlphabet = cells[0].innerText;
+        console.log(rowPos + "," + colPos + "," + alphabet + "," + swapRowPos + "," + swapColPos + "," + swapAlphabet);
+    }
 }
 
 function swapToDown(){
-    
+    let rowPos = shiftRowPos;
+    let colPos = shiftColPos;
+    let swapRowPos = shiftRowPos + 1;
+    let swapColPos = shiftColPos;
+    let alphabet = shiftAlphabet;
+    if(swapRowPos <= 5){        
+        let cells = document.getElementsByClassName("cell-" + swapRowPos + "-" + swapColPos);
+        let swapAlphabet = cells[0].innerText;
+        console.log(rowPos + "," + colPos + "," + alphabet + "," + swapRowPos + "," + swapColPos + "," + swapAlphabet);
+    }
+
 }
 
 function swapToRight(){
-    
+    let rowPos = shiftRowPos;
+    let colPos = shiftColPos;
+    let swapRowPos = shiftRowPos;
+    let swapColPos = shiftColPos + 1;
+    let alphabet = shiftAlphabet;
+    if(swapColPos <= 5){        
+        let cells = document.getElementsByClassName("cell-" + swapRowPos + "-" + swapColPos);
+        let swapAlphabet = cells[0].innerText;
+        console.log(rowPos + "," + colPos + "," + alphabet + "," + swapRowPos + "," + swapColPos + "," + swapAlphabet);
+    }
 }
+
+
+
 function isCellFree(rowPos, colPos) {
   if (colPos < 0 || colPos > 5 || rowPos > 5) {
     return false;
