@@ -5035,7 +5035,7 @@ function cellDivSelected(e) {
   }
   if (cellP) {
     const cellClasses = cellP.classList;
-    console.log(cellP);
+    //console.log(cellP);
     if(cellClasses.length > 0){
         const splitStr = cellClasses[0].split("-");
         if(splitStr.length == 3){
@@ -5215,10 +5215,12 @@ function emptyCells() {
             deleteFromGameBoard(row, index);
           }, 500);
           if (row > 0) {            
-            for (let cellR = row; cellR > 0; cellR--) {
-              let prevA = gameBoard[cellR - 1][index];  
+            for (let cellR = row - 1; cellR >= 0; cellR--) {
+              let prevA = gameBoard[cellR][index];  
               if (prevA.length == 1) {
-                //collect all indices to new array and check                      
+                setTimeout(function () {
+                  swapCellToDown(cellR, index, prevA, cellR + 1, index, "");  
+                }, 500); 
               }
             }
           }
@@ -5235,8 +5237,16 @@ function swapCellToDown(rowPos, colPos, alphabet, swapRow, swapCol, swapAlphabet
     gameBoard[swapRow][swapCol] = alphabet;
     let cells = document.getElementsByClassName("cell-" + rowPos + "-" + colPos);
     let swapCells = document.getElementsByClassName("cell-" + swapRow + "-" + swapCol);
-    cells[0].innerText = gameBoard[rowPos][colPos];
-    swapCells[0].innerText = gameBoard[swapRow][swapCol];
+    cells[0].innerText = swapAlphabet;  
+    if (swapAlphabet.length <= 0){
+        cells[0].parentElement.classList.remove("active-col"); 
+        cells[0].classList.remove("active-cell");  
+    } 
+    swapCells[0].innerText = alphabet;
+    if(swapAlphabet.length <= 0){
+      swapCells[0].parentElement.classList.add("active-col"); 
+      swapCells[0].classList.add("active-cell");  
+    }
 }
 
 function colorMatchedWords(rowPos, colPos) {
