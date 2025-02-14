@@ -84,16 +84,33 @@ nav {
 
 main{    
     margin-top: 66px;
-    background-color: blanchedalmond; /* need this?? */
+    background-color: azure;
     flex: 1 0 auto;
 
 }
 
 #gameInfo{
-    width: 100%;
     position: relative;
     height: 700px;
-    background-color: azure;
+    width: 100%;
+    display: inline;
+}
+.aboutBoard{
+    display: inline;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.aboutImage{
+    align-self: center;
+    max-width: 200px;
+    max-height: 200px;
+    display: block;
+    margin: auto;
+}
+#gameInfo>div>p {
+    align-self: center;
+    padding: 10px 20px;
+    line-height: 1.75;
 }
 
 #gameSection-Header, #scoresSection-Header{
@@ -220,6 +237,12 @@ main{
         display: flex;
         height: 100%;
     }
+ 
+.aboutBoard{
+    display: flex;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}   
     .game-container{
         height: 90vh;
         aspect-ratio: 1/1;
@@ -244,6 +267,12 @@ main{
         display: flex;
         height: 100%;
     }
+    
+.aboutBoard{
+    display: flex;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}   
     .game-container{
         height: 90vh;
         aspect-ratio: 1/1;
@@ -259,6 +288,11 @@ main{
   main{
     margin-top:77px;
   }
+  .aboutBoard{
+      display: flex;
+      margin-top: 5px;
+      margin-bottom: 5px;
+  }   
     nav {
         position: relative;
         width: fit-content;
