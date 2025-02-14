@@ -5161,6 +5161,8 @@ function newAlphabetAtTopRow() {
   wordsLeftToRight = [];
   cellsToBeEmptied = [];
   alert(" Board got filled up! Proceed swapping cells to make Words. ");
+  let cell = document.getElementById("game-Hint");
+  cell.innerText = " ";
 }
 
 let wordsLeftToRight = [];
