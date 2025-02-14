@@ -4929,24 +4929,20 @@ function swapGameBoard(rowPos, colPos, alphabet, swapRow, swapCol, swapAlphabet)
     gameBoard[swapRow][swapCol] = alphabet;
     let cells = document.getElementsByClassName("cell-" + rowPos + "-" + colPos);
     let swapCells = document.getElementsByClassName("cell-" + swapRow + "-" + swapCol);
-    let col = cells[0].parentElement;
-    let swapC = swapCells[0].parentElement;
-    col.replaceChild(swapCells[0], cells[0]);
-    swapC.replaceChild(cells[0], swapCells[0]);
-    // cells[0].innerText = gameBoard[rowPos][colPos];
-    // cells[0].parentElement.classList.remove("selected-col"); 
-    // cells[0].classList.remove("selected-cell");       
-    // if (gameBoard[rowPos][colPos].length <= 0){
-    //     cells[0].parentElement.classList.remove("active-col"); 
-    //     cells[0].classList.remove("active-cell");  
-    // } 
-    // swapCells[0].innerText = gameBoard[swapRow][swapCol];
-    // swapCells[0].parentElement.classList.add("selected-col"); 
-    // swapCells[0].classList.add("selected-cell");
-    // if(swapCells[0].classList.indexOf("active-cell") < 0){
-    //   swapCells[0].parentElement.classList.add("active-col"); 
-    //   swapCells[0].classList.add("active-cell");
-    // }
+    cells[0].innerText = swapAlphabet;  
+    cells[0].parentElement.classList.remove("selected-col"); 
+    cells[0].classList.remove("selected-cell");   
+    if (swapAlphabet.length <= 0){
+        cells[0].parentElement.classList.remove("active-col"); 
+        cells[0].classList.remove("active-cell");  
+    } 
+    swapCells[0].innerText = alphabet;
+    swapCells[0].parentElement.classList.add("selected-col"); 
+    swapCells[0].classList.add("selected-cell");  
+    if(swapAlphabet.length <= 0){
+      swapCells[0].parentElement.classList.add("active-col"); 
+      swapCells[0].classList.add("active-cell");  
+    }
     shiftAlphabet = alphabet;
     shiftRowPos = swapRow;
     shiftColPos = swapCol;   
