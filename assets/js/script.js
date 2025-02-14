@@ -5191,12 +5191,18 @@ function checkBoardForWords(rowPos, colPos) {
     }
   }
   //console.log(cellsToBeEmptied);
-  emptyCells();
+  let rowsToCheck = emptyCells();
+  if(rowsToCheck.length > 0){
+    for(var i of rowsToCheck){
+      checkBoardForWords(i, 0);
+
+    }
+  }
 }
 
-let cellsToShiftDown = [];
 
 function emptyCells() {
+  let rowsToCheck = [];
   cellsToBeEmptied
     .sort(function (a, b) {
       return a.length - b.length;
@@ -5220,17 +5226,19 @@ function emptyCells() {
             for (let cellR = row - 1; cellR >= 0; cellR--) {
               let prevA = gameBoard[cellR][index];  
               if (prevA.length == 1) {
+                rowsToCheck.push(cellR);
                 setTimeout(function () {
                   swapCellToDown(cellR, index, prevA, cellR + 1, index, "");  
                 }, 500); 
               }
             }
+
           }
         }
       }
     }
   }
-  
+  return rowsToCheck;
 }
 
 
