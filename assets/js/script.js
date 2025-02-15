@@ -5019,6 +5019,8 @@ function createEmptyBoard() {
   wordsLeftToRight = [];
   cellsToBeEmptied = [];
   isSwappingAllowed = false;
+  wordsToBeUpdated = [];
+  updatedScore = 0;
   newAlphabetAtTopRow();
 }
 
@@ -5200,6 +5202,8 @@ function checkBoardForWords(rowPos, colPos) {
   }
 }
 
+let wordsToBeUpdated = [];
+updatedScore = 0;
 
 function emptyCells() {
   let rowsToCheck = [];
@@ -5218,6 +5222,19 @@ function emptyCells() {
         for (let j = 2; j < cellArray.length; j++) {
           let index = Number(cellArray[j]);
           console.log("deleted : " + row + "," + index + "," + searchString);
+          if(wordsToBeUpdated.indexOf(searchString) < 0){
+            wordsToBeUpdated.push(searchString);
+            let wordsList = document.getElementById("words-list");
+            const liElement = document.createElement("li");
+            liElement.classList.add("scored-li");
+            const liP = document.createElement("p");
+            liP.innerText = searchString;
+            liElement.appendChild(liP);
+            wordsList.appendChild(liElement);
+            updatedScore = updatedScore + searchString.length;
+            let score = document.getElementById("gameScore");
+            score.innerText = "Your Score is : "  + updatedScore;
+          }
           colorMatchedWords(row, index);
           setTimeout(function () {
             deleteFromGameBoard(row, index);
