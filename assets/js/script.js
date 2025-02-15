@@ -4930,7 +4930,12 @@ function swapGameBoard(rowPos, colPos, alphabet, swapRow, swapCol, swapAlphabet)
     let cells = document.getElementsByClassName("cell-" + rowPos + "-" + colPos);
     let swapCells = document.getElementsByClassName("cell-" + swapRow + "-" + swapCol);
     cells[0].innerText = swapAlphabet;  
-    cells[0].parentElement.classList.remove("selected-col"); 
+    let activeCols = document.getElementsByClassName("selected-col");
+    if(activeCols.length > 0){
+      for(let activeCol of activeCols){
+          activeCol.classList.remove("selected-col");
+      }
+    }          
     cells[0].classList.remove("selected-cell");   
     if (swapAlphabet.length <= 0){
         cells[0].parentElement.classList.remove("active-col"); 
