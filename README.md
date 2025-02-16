@@ -2,6 +2,9 @@
 The site is one of many gaming sites / apps which provide word game 
 enthusiastics to keep their brian sharp
 
+![Mockup Screenshot](assets/images/mockup_screenshot.png)
+
+
 ## Features
 The site main features are to provide word gamers a little time to play.
 
