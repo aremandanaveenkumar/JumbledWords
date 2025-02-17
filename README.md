@@ -26,11 +26,11 @@ The fully responsive navigation bar including links to the Logo/Site Title, a li
 
 ### Validator Testing
 
-- HTML
+- HTML Validator checking passed with no errors
 
-- CSS
+- CSS Validator checking passed with no errors
 
-- JS
+- JS Hint Validator checking passed with 3 warnings
 
 ## Deployment
 
@@ -44,3 +44,7 @@ The live link can be found here - https://aremandanaveenkumar.github.io/JumbledW
 
 
 ### Content
+
+ - The Words list was downloaded from the site - https://www.mit.edu/~ecprice/wordlist.10000 and words length greater than 2 and less than 7 were being segregated so that can be used in the site for testing purpose.
+
+  - Later the same can be done using an online api for random word and checking the validity of word.
