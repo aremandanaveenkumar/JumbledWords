@@ -4758,12 +4758,12 @@ function startNewGame() {
  * link keydown and game control clicks
  */
 function startNewGameBoard() {
-  if (!isKeyDownAdded) {
-    document.addEventListener("keydown", (e) => gameKeyDown(e));
-    linkClickToControls();
-    isKeyDownAdded = true;
-  }
-  createEmptyBoard();
+  // if (!isKeyDownAdded) {
+  //   document.addEventListener("keydown", (e) => gameKeyDown(e));
+  //   linkClickToControls();
+  //   isKeyDownAdded = true;
+  // }
+  // createEmptyBoard();
 }
 
 /**
@@ -5239,6 +5239,16 @@ function emptyCells() {
             updatedScore = updatedScore + searchString.length;
             let score = document.getElementById("gameScore");
             score.innerText = "Your Score is : "  + updatedScore;
+            if(updatedScore > 100){
+              alert("You Scored 100 Points! ");
+              break;
+            } else{
+              let cols = document.getElementsByClassName("active-cell");
+              if(cols.length <= 3){
+                alert("You were not able to Score 100 Points!, but most of the Board is cleared.");
+                break;
+              }
+            }
           }
           colorMatchedWords(row, index);
           setTimeout(function () {
