@@ -11,7 +11,7 @@ The site main features are to provide word gamers a little time to play.
 ### Existing Features
 - __Navigation Bar__
 
-_ The fully responsive navigation bar including links to the Logo/Site Title, a link to know about/ how to play game, a link to two different style of word game boards, and finally the scores for the game being played.
+The fully responsive navigation bar including links to the Logo/Site Title, a link to know about/ how to play game, a link to two different style of word game boards, and finally the scores for the game being played.
 
 ### Features Left To Implement
 
@@ -33,6 +33,14 @@ _ The fully responsive navigation bar including links to the Logo/Site Title, a 
 - JS
 
 ## Deployment
+
+- The site was deployed to GitHub pages. The steps to deploy are as follows: 
+  - In the GitHub repository, navigate to the Settings tab 
+  - From the source section drop-down menu, select the Master Branch
+  - Once the master branch has been selected, the page will be automatically refreshed with a detailed ribbon display to indicate the successful deployment. 
+
+The live link can be found here - https://aremandanaveenkumar.github.io/JumbledWords/
+
 
 
 ### Content

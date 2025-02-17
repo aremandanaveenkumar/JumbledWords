@@ -5205,10 +5205,20 @@ function checkBoardForWords(rowPos, colPos) {
 
     }
   }
+  if(updatedScore > 100){
+    alert("You Scored 100 Points! ");
+  } else if(isSwappingAllowed){
+      let activecols = document.getElementsByClassName("active-col");
+      if(activecols.length <= 5){
+        console.log(isSwappingAllowed);
+        alert("You were not able to Score 100 Points!, but most of the Board is cleared.");
+        
+      }
+  }
 }
 
 let wordsToBeUpdated = [];
-updatedScore = 0;
+let updatedScore = 0;
 
 function emptyCells() {
   let rowsToCheck = [];
@@ -5239,16 +5249,7 @@ function emptyCells() {
             updatedScore = updatedScore + searchString.length;
             let score = document.getElementById("gameScore");
             score.innerText = "Your Score is : "  + updatedScore;
-            if(updatedScore > 100){
-              alert("You Scored 100 Points! ");
-              break;
-            } else{
-              let cols = document.getElementsByClassName("active-cell");
-              if(cols.length <= 3){
-                alert("You were not able to Score 100 Points!, but most of the Board is cleared.");
-                break;
-              }
-            }
+            
           }
           colorMatchedWords(row, index);
           setTimeout(function () {
