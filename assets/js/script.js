@@ -4682,6 +4682,10 @@ const randomWords_w = [
   "wrote",
 ];
 
+/**
+ * 
+ * @returns array of all strings
+ */
 function allRandomWords() {
   return randomWords_a.concat(
     randomWords_b,
@@ -4758,12 +4762,7 @@ function startNewGame() {
  * link keydown and game control clicks
  */
 function startNewGameBoard() {
-  // if (!isKeyDownAdded) {
-  //   document.addEventListener("keydown", (e) => gameKeyDown(e));
-  //   linkClickToControls();
-  //   isKeyDownAdded = true;
-  // }
-  // createEmptyBoard();
+  alert("This Game Board style is yet to be Implemented!");
 }
 
 /**
@@ -4798,6 +4797,10 @@ function gameKeyDown(e) {
   }
 }
 
+/**
+ * shift the active alphabet to left
+ * call function to swap the selected alphabet to left
+ */
 function shiftLeft() {
     if(isSwappingAllowed){
         swapToLeft();
@@ -4814,6 +4817,10 @@ function shiftLeft() {
     }
 }
 
+/**
+ * shift the active alphabet to up
+ * call function to swap the selected alphabet to up
+ */
 function shiftUp() {
     if(isSwappingAllowed){
         swapToUp();
@@ -4828,6 +4835,10 @@ function shiftUp() {
     }
 }
 
+/**
+ * shift the active alphabet to down
+ * call function to swap the selected alphabet to down
+ */
 function shiftDown() {
     if(isSwappingAllowed){
         swapToDown();
@@ -4845,6 +4856,10 @@ function shiftDown() {
     }
 }
 
+/**
+ * shift the active alphabet to right
+ * call function to swap the selected alphabet to right
+ */
 function shiftRight() {
     if(isSwappingAllowed){
         swapToRight();
@@ -4861,6 +4876,9 @@ function shiftRight() {
     }
 }
 
+/**
+ * swaps the selected alphabet with the alphabet to its left
+ */
 function swapToLeft(){
     let rowPos = shiftRowPos;
     let colPos = shiftColPos;
@@ -4877,6 +4895,9 @@ function swapToLeft(){
 
 }
 
+/**
+ * swaps the selected alphabet with the alphabet to its top
+ */
 function swapToUp(){
     let rowPos = shiftRowPos;
     let colPos = shiftColPos;
@@ -4892,6 +4913,9 @@ function swapToUp(){
     }
 }
 
+/**
+ * swaps the selected alphabet with the alphabet to its down
+ */
 function swapToDown(){
     let rowPos = shiftRowPos;
     let colPos = shiftColPos;
@@ -4908,6 +4932,9 @@ function swapToDown(){
 
 }
 
+/**
+ * swaps the selected alphabet with the alphabet to its right
+ */
 function swapToRight(){
     let rowPos = shiftRowPos;
     let colPos = shiftColPos;
@@ -4923,7 +4950,16 @@ function swapToRight(){
     }
 }
 
-
+/**
+ * swapping alphabets based on the inputs provided
+ * update class after swapping
+ * @param {*} rowPos selected row as int
+ * @param {*} colPos selected column as int
+ * @param {*} alphabet alphabet from the selected cell as string of length 1
+ * @param {*} swapRow row to swap as int
+ * @param {*} swapCol column to swap as int
+ * @param {*} swapAlphabet alphabet from the cell to be swapped as string of length 1
+ */
 function swapGameBoard(rowPos, colPos, alphabet, swapRow, swapCol, swapAlphabet){
     gameBoard[rowPos][colPos] = swapAlphabet;
     gameBoard[swapRow][swapCol] = alphabet;
@@ -4953,7 +4989,12 @@ function swapGameBoard(rowPos, colPos, alphabet, swapRow, swapCol, swapAlphabet)
     shiftColPos = swapCol;   
 }
 
-
+/**
+ * takes input of row & column to check if it is free or filled with alphabet
+ * @param {*} rowPos as int
+ * @param {*} colPos as int
+ * @returns true if cell is empty or false if cell is filled with alphabet
+ */
 function isCellFree(rowPos, colPos) {
   if (colPos < 0 || colPos > 5 || rowPos > 5) {
     return false;
@@ -4966,6 +5007,12 @@ function isCellFree(rowPos, colPos) {
   }
 }
 
+/**
+ * creates an empty board populating with bordered cells 
+ * with class as its cell row and column number
+ * initiates all variables outside the function to new
+ * first cell of the board fills up with random alphabet
+ */
 function createEmptyBoard() {
   const gameContainer = document.getElementById("gameContainer");
   const containerWidth = gameContainer.clientWidth;
@@ -5029,6 +5076,11 @@ function createEmptyBoard() {
   newAlphabetAtTopRow();
 }
 
+/**
+ * reads the selected element for its position in the board
+ * @param {*} e div click event args are passed from the event listener
+ * @returns null if board is started new
+ */
 function cellDivSelected(e) {
     if(!isSwappingAllowed){
         return;
@@ -5076,6 +5128,12 @@ function cellDivSelected(e) {
   }
 }
 
+/**
+ * writes the alphabet to a specifed row, column position
+ * @param {*} rowPos row to write as int
+ * @param {*} colPos column to write as int
+ * @param {*} alphabet alphabet to write 
+ */
 function writeToGameBoard(rowPos, colPos, alphabet) {
   gameBoard[rowPos][colPos] = alphabet;
   gameBoardTopDown[colPos][rowPos] = alphabet;
@@ -5085,6 +5143,11 @@ function writeToGameBoard(rowPos, colPos, alphabet) {
   cells[0].classList.add("active-cell");
 }
 
+/**
+ * delete the alphabet and clear the class to update style
+ * @param {*} rowPos row to delete as int
+ * @param {*} colPos column to delete as int
+ */
 function deleteFromGameBoard(rowPos, colPos) {
   gameBoard[rowPos][colPos] = "";
   gameBoardTopDown[colPos][rowPos] = "";
@@ -5100,6 +5163,13 @@ function deleteFromGameBoard(rowPos, colPos) {
     shiftColPos = -1;
   }
 }
+
+/**
+ * checks if the activerandomword is empty
+ * if empty fills it with a random worm from the words array
+ * if not empty takes a random alphabet from the word and deletes it from the string
+ * @returns the random alphabet as string of length 1
+ */
 
 function getRandomAlphabet() {
   if (activeRandomWord.length <= 0) {
@@ -5154,6 +5224,11 @@ function getRandomAlphabet() {
   }
 }
 
+/**
+ * writes a random alphabet from the random word to top row
+ * @returns null till the top row of the board gets filled up
+ * once top row is filled, it enables to swap 
+ */
 function newAlphabetAtTopRow() {
   shiftRowPos = 0;
   shiftAlphabet = getRandomAlphabet();
@@ -5174,6 +5249,18 @@ function newAlphabetAtTopRow() {
 
 let wordsLeftToRight = [];
 let cellsToBeEmptied = [];
+
+/**
+ * checks for possible words from the row position
+ * @param {*} rowPos row to check as int
+ * @param {*} colPos column to check as int
+ * updates another array with the word and its indices in its row
+ * words are checked in left to right direction
+ * one 6 letter word with indices 0,5
+ * two 5 letter words with indices 0,4 & 1,5
+ * three 4 letter words with indices 0,3 1,4 & 2,5
+ * four 3 letter words with indices 0,2 1,3 2,4 & 3,5
+ */
 function checkBoardForWords(rowPos, colPos) {
   for (let shift = 0; shift < 4; shift++) {
     let word = "";
@@ -5220,6 +5307,10 @@ function checkBoardForWords(rowPos, colPos) {
 let wordsToBeUpdated = [];
 let updatedScore = 0;
 
+/**
+ * empties the populated cells and shifts the top alphabets down
+ * @returns row numbers to check again for matching words
+ */
 function emptyCells() {
   let rowsToCheck = [];
   cellsToBeEmptied
@@ -5274,7 +5365,15 @@ function emptyCells() {
   return rowsToCheck;
 }
 
-
+/**
+ * swaps the top cell to down
+ * @param {*} rowPos top row as int
+ * @param {*} colPos top column as int
+ * @param {*} alphabet alphabet in the top position
+ * @param {*} swapRow cleared row as int
+ * @param {*} swapCol cleared column as int
+ * @param {*} swapAlphabet 
+ */
 function swapCellToDown(rowPos, colPos, alphabet, swapRow, swapCol, swapAlphabet){
     gameBoard[rowPos][colPos] = swapAlphabet;
     gameBoard[swapRow][swapCol] = alphabet;
@@ -5292,6 +5391,11 @@ function swapCellToDown(rowPos, colPos, alphabet, swapRow, swapCol, swapAlphabet
     }
 }
 
+/**
+ * color the matched cells 
+ * @param {*} rowPos row position as int
+ * @param {*} colPos column position as int
+ */
 function colorMatchedWords(rowPos, colPos) {
   let cells = document.getElementsByClassName("cell-" + rowPos + "-" + colPos);
   cells[0].parentElement.classList.add("matched-col");
