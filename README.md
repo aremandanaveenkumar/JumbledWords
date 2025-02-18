@@ -13,9 +13,20 @@ The site main features are to provide word gamers a little time to play.
 
 The fully responsive navigation bar including links to the Logo/Site Title, a link to know about/ how to play game, a link to two different style of word game boards, and finally the scores for the game being played.
 
+- __About__
+A breif description about the Game itself described in this section.
+
+![About Game Screenshot](assets/images/aboutGame.png)
+
+- __NewGame__
+Game section which includes the game board and controls for left, up, down & right
+
+![New Game Screenshot](assets/images/gameBoard.png)
+
 ### Features Left To Implement
 
 - Random Board is yet to be implemented.
+- Adding Scores section in the navigation bar.
 - Adding graphics / animations for the game itself
 
 ## Testing
