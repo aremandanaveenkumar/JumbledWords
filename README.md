@@ -28,9 +28,19 @@ The fully responsive navigation bar including links to the Logo/Site Title, a li
 
 - HTML Validator checking passed with no errors
 
+![Html Validator Screenshot](assets/images/htmlValidator.png)
+
 - CSS Validator checking passed with no errors
 
+![CSS Validatoir Screenshot](assets/images/cssValidator.png)
+
 - JS Hint Validator checking passed with 3 warnings
+
+![JS Hint Screenshot](assets/images/jshint.png)
+
+- Lighthouse Score tested on Chrome Browser.
+
+![Lighthouse Score Screenshot](assets/images/lighthouse_score.png)
 
 ## Deployment
 
